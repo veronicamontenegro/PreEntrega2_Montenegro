@@ -1,0 +1,80 @@
+@import url('https://fonts.cdnfonts.com/css/manrope');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,500;1,100&display=swap');
+
+:root{
+    --color-dificultad: #26293a;
+    --color-features: #9c9191;
+    --color-button: #fff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contenedor-titulo{
+    padding-top: 130px;
+    text-align: center;
+    font-size: 30px;
+    
+
+}
+
+.card{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+     
+}
+
+.card__item{
+    max-width: 350px;
+    width: 20%;
+    box-shadow: 0 0 5px rgba(0, 0, 0,.5);
+    text-align: center;
+    padding: 40px 5px;
+    background: var(--color-button);
+    border-radius: 15px;
+
+}
+
+.card__sendero{
+    color: var(--color-dificultad);
+    margin-bottom: 40px;
+}
+
+
+
+.card__features{
+    color: var(--color-features);
+    margin-bottom: 25px;
+    margin: 30px 0 50px;
+}
+
+
+.card__btn{
+    display: inline-block;
+    background-color: var(--color-dificultad);
+    color: var(--color-button);
+    width: 180px;
+    text-align: center;
+    padding: 20px 0;
+    text-decoration: none;
+    border-radius: 20px;
+
+}
+
+
+body{
+    background-image: url(img/Laguna-de-los-tres-08-comp-scaled.webp);
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    
+}
+
