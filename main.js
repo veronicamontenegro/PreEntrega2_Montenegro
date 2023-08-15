@@ -1,6 +1,9 @@
 
+// Array de objetos senderosArgentina 
+
 class SenderoArgentina {
-    constructor(nombre, descripcion, provincia, dificultad, distancia, duracion, desnivel) {
+    constructor(id, nombre, descripcion, provincia, dificultad, distancia, duracion, desnivel) {
+      this.id = id;
       this.nombre = nombre;
       this.descripcion = descripcion;
       this.provincia = provincia;
@@ -13,6 +16,7 @@ class SenderoArgentina {
   
 const senderosArgentina = [
     new SenderoArgentina(
+      1,
       "SENDERO DE LOS ARRAYANES",
       "Un encantador sendero rodeado de bosques de arrayanes en el Parque Nacional Los Arrayanes.",
       "NEUQUÉN",
@@ -22,6 +26,7 @@ const senderosArgentina = [
       792
     ),
     new SenderoArgentina(
+      2,
       "SENDERO DEL CERRO URITORCO",
       "Un desafiante sendero que te lleva a la cima del Cerro Uritorco, la montaña más alta de Córdoba.",
       "CÓRDOBA",
@@ -31,6 +36,7 @@ const senderosArgentina = [
       872
     ),
     new SenderoArgentina(
+      3,
       "SENDERO DE LA LAGUNA ESMERALDA",
       "Un pintoresco sendero que conduce a una hermosa laguna de color esmeralda en Tierra del Fuego.",
       "TIERRA DEL FUEGO",
@@ -40,6 +46,7 @@ const senderosArgentina = [
       720
     ),
     new SenderoArgentina(
+      4,
       "SENDERO DEL ACONCAGUA",
       "Un desafiante sendero que lleva a los aventureros a la base del majestuoso Aconcagua, la montaña más alta de América.",
       "MENDOZA",
@@ -49,6 +56,7 @@ const senderosArgentina = [
       880
     ),
     new SenderoArgentina(
+      5,
       "SENDERO DE LA QUEBRADA DE HUMAHUACA",
       "Un sendero histórico que recorre paisajes impresionantes y sitios arqueológicos en la Quebrada de Humahuaca.",
       "JUJUY",
@@ -58,6 +66,7 @@ const senderosArgentina = [
       652
     ),
     new SenderoArgentina(
+      6,
       "SENDERO DE LAS SIETE CASCADAS",
       "Un relajante sendero que pasa por siete hermosas cascadas en la provincia de Misiones.",
       "MISIONES",
@@ -67,6 +76,7 @@ const senderosArgentina = [
       253
     ),
     new SenderoArgentina(
+      7,
       "SENDERO DEL MIRADOR DEL FITZ ROY",
       "Un sendero panorámico que ofrece vistas impresionantes del famoso Cerro Fitz Roy en Santa Cruz.",
       "SANTA CRUZ",
@@ -76,6 +86,7 @@ const senderosArgentina = [
       589
     ),
     new SenderoArgentina(
+      8,
       "SENDERO DEL VOLCÁN LANÍN",
       "Un desafiante sendero que te lleva a la cumbre del imponente Volcán Lanín en la provincia de Neuquén.",
       "NEUQUÉN",
@@ -85,6 +96,7 @@ const senderosArgentina = [
       834
     ),
     new SenderoArgentina(
+      9,
       "SENDERO DE LA QUEBRADA DE LAS CONCHAS",
       "Un espectacular sendero que recorre formaciones rocosas únicas en la Quebrada de las Conchas, Salta.",
       "SALTA",
@@ -94,6 +106,7 @@ const senderosArgentina = [
       638
     ),
     new SenderoArgentina(
+      10,
       "SENDERO DE LOS GLACIARES",
       "Un increíble sendero que te permite acercarte a impresionantes glaciares en el Parque Nacional Los Glaciares.",
       "SANTA CRUZ",
@@ -102,112 +115,140 @@ const senderosArgentina = [
       4,
       721
     ),
+    new SenderoArgentina(
+      11,
+      "SENDERO DEL CERRO LOPEZ",
+      "Un hermoso sendero que te lleva a lo largo de la ladera del Cerro López, ofreciendo vistas panorámicas de la región.",
+      "RIO NEGRO",
+      "MODERADO",
+      10,
+      4,
+      753
+    ),
+    new SenderoArgentina(
+      12,
+      "SENDERO DEL CERRO TORRE",
+      "Un desafiante sendero que conduce a la base del impresionante Cerro Torre, conocido por su belleza y dificultad.",
+      "SANTA CRUZ",
+      "Difícil",
+      15,
+      8,
+      889
+    ),
     
 ];
+
+
+
+
+// Asociar divs de cada card a los objetos del array
+
+const cards = document.querySelectorAll('.card')
+
+cards.forEach(card =>{
+  const id = card.dataset.id;
+  const sendero = senderosArgentina.find(obj => obj.id.toString() === id);
+  if(sendero){
+  card.textContent = sendero.contenido
+  
+}
+})
+
+
+
+// Carga de valores del local storage al cargar la pagina
+
+document.addEventListener('DOMContentLoaded', () =>{
+  const provinciaGuardada = localStorage.getItem('provincia') == true ;
+  const dificultadGuardada = localStorage.getItem('dificultad');
+  const minimoDistanciaGuardada = JSON.parse(localStorage.getItem('minimoDistancia'));
+  const maximoDistanciaGuardada = JSON.parse(localStorage.getItem('maximoDistancia'));
+  const minimoDuracionGuardada = JSON.parse(localStorage.getItem('minimoDuracion'));
+  const maximoDuracionGuardada = JSON.parse(localStorage.getItem('maximoDuracion'));
+  const minimoDesnivelGuardada = JSON.parse(localStorage.getItem('minimoDesnivel'));
+  const maximoDesnivelGuardada = JSON.parse(localStorage.getItem('maximoDesnivel'));
+  
+  if (provinciaGuardada){
+    const checkboxes = document.querySelectorAll('input[name="provincia"]');
+    checkboxes.forEach(checkbox =>{
+      checkbox.checked = provinciaGuardada.includes(checkbox.value);
+    });
+  }
+  if(dificultadGuardada){
+    document.getElementById('dificultad').value = dificultadGuardada;
+  }
+
+  if(minimoDistanciaGuardada){
+    document.getElementById('min-distancia').value = minimoDistanciaGuardada;
+  }
+
+  if(maximoDistanciaGuardada){
+    document.getElementById('max-distancia').value = maximoDistanciaGuardada;
+  }
+
+  if(minimoDuracionGuardada){
+    document.getElementById('min-duracion').value = minimoDuracionGuardada;
+  }
+
+  if(maximoDuracionGuardada){
+    document.getElementById('max-duracion').value = maximoDuracionGuardada;
+  }
+
+  if(minimoDesnivelGuardada){
+    document.getElementById('min-desnivel').value = minimoDesnivelGuardada;
+  }
+
+  if(maximoDesnivelGuardada){
+    document.getElementById('max-desnivel').value = maximoDesnivelGuardada;
+  }
+
   
 
-let nombre = prompt("Filtrar por nombre de la ruta").toUpperCase();
-let provincia = prompt("Filtrar por provincia").toUpperCase();
-let dificultad = prompt("Filtrar por dificultad (fácil/moderado/difícil)").toUpperCase();
-let minimoDistancia = Number(prompt("Filtrar por distancia mínima(en km)"));
-let maximoDistancia = Number(prompt("Filtrar por distancia máxima(en km)"));
-let minimoDuracion = Number(prompt("Filtrar por duración mínima(en hs)"));
-let maximoDuracion = Number(prompt("Filtrar por duración máxima(en hs)"));
-let minimoDesnivel = Number(prompt("Filtrar por desnivel mínimo(en metros)"));
-let maximoDesnivel = Number(prompt("Filtrar por desnivel máximo(en metros)"))
+});
 
+// Funcion para filtrar senderos & Storage 
 
-const datosDeBusqueda = {
-    nombre: nombre,
-    provincia: provincia,
-    dificultad: dificultad,
-    minimoDistancia: minimoDistancia,
-    maximoDistancia: maximoDistancia,
-    minimoDuracion: minimoDuracion,
-    maximoDuracion: maximoDuracion,
+function filtrarSenderos(){
+  const provinciaCheckboxes = document.querySelectorAll('input[name="provincia"]:checked');
+  const dificultad = document.getElementById('dificultad').value;
+  const minimoDistancia = parseInt(document.getElementById('min-distancia').value);
+  const maximoDistancia = parseInt(document.getElementById('max-distancia').value);
+  const minimoDuracion = parseInt(document.getElementById('min-duracion').value);
+  const maximoDuracion = parseInt(document.getElementById('max-duracion').value);
+  const minimoDesnivel = parseInt(document.getElementById('min-desnivel').value);
+  const maximoDesnivel = parseInt(document.getElementById('max-desnivel').value);
+
+  const provincias = Array.from(provinciaCheckboxes).map(checkbox => checkbox.value);
+  localStorage.setItem('provincias', JSON.stringify(provincias));
+  localStorage.setItem('dificultad', dificultad);
+  localStorage.setItem('minimoDistancia', minimoDistancia);
+  localStorage.setItem('maximoDistancia', maximoDistancia);
+  localStorage.setItem('minimoDuracion', minimoDuracion);
+  localStorage.setItem('maximoDuracion', maximoDuracion);
+  localStorage.setItem('minimoDesnivel', minimoDesnivel);
+  localStorage.setItem('maximoDesnivel', maximoDesnivel);
+
+  
+  const senderosFiltrados = senderosArgentina.filter(senderoArgentina =>{
+    return (provinciaCheckboxes.length === 0 || provinciaCheckboxes.includes(senderoArgentina.provincia)) && 
+    (dificultad === '' || senderoArgentina.dificultad === dificultad) && (senderoArgentina.minimoDistancia) && (senderoArgentina.maximoDistancia) && (senderoArgentina.minimoDuracion) && (senderoArgentina.maximoDuracion) && (senderoArgentina.minimoDesnivel) && (senderoArgentina.maximoDesnivel);
+  });  
+
+  
+
 }
 
+// Evento del botón Buscar (ejecución de la función)
 
-function mostrarSenderosArgentina(senderosArgentina){
-    senderosArgentina.forEach ( (SenderoArgentina) =>{
-        alert(`Los senderos más adecuados para usted son: Nombre: ${SenderoArgentina.nombre} - Descripción: ${SenderoArgentina.descripcion} - Provincia: ${SenderoArgentina.provincia} - Dificultad: ${SenderoArgentina.dificultad} - Distancia(kms): ${SenderoArgentina.distancia} - Duración(hs): ${SenderoArgentina.duracion} - Desnivel(mts): ${SenderoArgentina.desnivel}`)
-    })
-}
+let btn = document.getElementById('btnBuscar');
 
-
-function filtrarSendero(){
-    const resultado = senderosArgentina.filter(filtrarNombre).filter(filtrarProvincia).filter(filtrarDificultad).filter(filtrarMinimoDistancia).filter(filtrarMaximoDistancia).filter(filtrarMinimoDuracion).filter(filtrarMaximoDuracion).filter(filtrarMinimoDesnivel).filter(filtrarMaximoDesnivel);
-    if (resultado.length){
-        mostrarSenderosArgentina(resultado)
-    }else{
-        alert("Su búsqueda no coincide con ningún resultado")
-    }
-    
-}
+btn.addEventListener('click', ()=> {
+  filtrarSenderos();
+})
 
 
-function filtrarNombre(SenderoArgentina){
-    if (datosDeBusqueda.nombre){
-        return SenderoArgentina.nombre === datosDeBusqueda.nombre
-    }
-    return SenderoArgentina;
-    
-}
 
-function filtrarProvincia(SenderoArgentina){
-    if (datosDeBusqueda.provincia){
-        return SenderoArgentina.provincia === datosDeBusqueda.provincia
-    }
-    return SenderoArgentina;
-}
 
-function filtrarDificultad(SenderoArgentina){
-    if (datosDeBusqueda.dificultad){
-        return SenderoArgentina.dificultad === datosDeBusqueda.dificultad
-    }
-    return SenderoArgentina;
-}
 
-function filtrarMinimoDistancia(SenderoArgentina){
-    if (datosDeBusqueda.minimoDistancia){
-        return SenderoArgentina.distancia >= datosDeBusqueda.minimoDistancia
-    }
-    return SenderoArgentina;
-}
 
-function filtrarMaximoDistancia(SenderoArgentina){
-    if (datosDeBusqueda.maximoDistancia){
-        return SenderoArgentina.distancia <= datosDeBusqueda.maximoDistancia
-    }
-    return SenderoArgentina;
-}
 
-function filtrarMinimoDuracion(SenderoArgentina){
-    if (datosDeBusqueda.minimoDuracion){
-        return SenderoArgentina.duracion >= datosDeBusqueda.minimoDuracion
-    }
-    return SenderoArgentina;
-}
-
-function filtrarMaximoDuracion(SenderoArgentina){
-    if (datosDeBusqueda.maximoDuracion){
-        return SenderoArgentina.duracion <= datosDeBusqueda.maximoDuracion
-    }
-    return SenderoArgentina;
-}
-
-function filtrarMinimoDesnivel(SenderoArgentina){
-    if (datosDeBusqueda.minimoDesnivel){
-        return SenderoArgentina.desnivel >= datosDeBusqueda.minimoDesnivel
-    }
-    return SenderoArgentina;
-}
-
-function filtrarMaximoDesnivel(SenderoArgentina){
-    if (datosDeBusqueda.maximoDesnivel){
-        return SenderoArgentina.desnivel <= datosDeBusqueda.maximoDesnivel
-    }
-    return SenderoArgentina;
-}
-
-filtrarSendero()

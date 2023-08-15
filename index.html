@@ -16,24 +16,142 @@
         
     </header>
 
-    <section>
-        <div class="card">
-            <div class="card__item">
+    <aside class="contenedor-busqueda">
+        <h3>Filtrá por provincia, dificultad, distancia y/o desnivel</h3>
+        <form action="" method="post" id="formulario">
+            <div class="busqueda-por-provincia" id="busquedaprovincia">
+                <p>PROVINCIA:</p>
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Neuquén" class="busquedaneuquen" /> Neuquén</label><br/>
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Córdoba" /> Córdoba</label><br />
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Tierra del Fuego" /> Tierra del Fuego</label><br />
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Rio Negro" /> Río Negro</label><br />
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Santa Cruz" /> Santa Cruz</label><br />
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Mendoza" /> Mendoza</label><br />
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Jujuy" /> Jujuy</label><br />
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Misiones" /> Misiones</label><br />
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Salta" /> Salta</label><br />
+            </div>
+            <div class="busqueda-por-dificultad">
+                <p>DIFICULTAD:</p>
+                <select name="dificultad" id="dificultad">
+                    <option  value="fácil">Fácil</option>
+                    <option  value="moderado">Moderado</option>
+                    <option  value="dificil">Difícil</option>
+                </select>
+            </div>
+            
+           <div class="busqueda-por-distancia">
+            <p>DISTANCIA:</p>
+            <input type="number" id="min-distancia" name="min-distancia" placeholder="Min">
+            <span style="align-self: center;">-</span>
+            <input type="number" id="max-distancia" name="max-distancia" placeholder="Max">
+           </div>
+           <div class="busqueda-por-duracion">
+            <P>DURACION:</P>
+            <input name="min-duracion" id="min-duracion" type="number" placeholder="Min">
+            <span style="align-self: center;">-</span>
+            <input type="number" id="max-duracion" name="max-duracion" placeholder="Max">
+           </div>
+           <div class="busqueda-por-desnivel">
+            <p>DESNIVEL:</p>
+            <input name="min-desnivel" id="min-desnivel" type="number" placeholder="Min">
+            <span style="align-self: center;">-</span>
+            <input type="number" id="max-desnivel" name="max-desnivel" placeholder="Max">
+           </div>
+
+           <button id="btnBuscar" class="btn-busqueda">Buscar</button>
+
+        </form>
+        
+        
+    </aside>
+
+    <main>
+
+        
+
+
+        <div class="card" id="card-imagenes">
+            <div class="card1">
                 <h3 class="card__sendero">Sendero de los Arrayanes</h3>
+                <!-- <h4>Un encantador sendero rodeado de bosques de arrayanes en el Parque Nacional Los Arrayanes.</h4> -->
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
                 <p class="card__features">8km • 3hs</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card__item">
+            <div class="card2">
                 <h3 class="card__sendero">Sendero del Cerro Uritorco</h3>
                 <h4 class="card__dificultad">Dificultad: difícil</h4>
                 <p class="card__features">12 km • 6hs</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card__item">
+            <div class="card3">
                 <h3 class="card__sendero">Sendero de la Laguna Esmeralda</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card4">
+                <h3 class="card__sendero">Sendero del Aconcagua</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card5">
+                <h3 class="card__sendero">Sendero de la Quebrada de Humahuaca</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card6">
+                <h3 class="card__sendero">Sendero de las Siete Cascadas</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card7">
+                <h3 class="card__sendero">Sendero del Mirador del Fitz Roy</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card8">
+                <h3 class="card__sendero">Sendero del Volcán Lanín</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card9">
+                <h3 class="card__sendero">Sendero de la Quebrada de las Conchas</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card10">
+                <h3 class="card__sendero">Sendero de los Glaciares</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card11">
+                <h3 class="card__sendero">Sendero del Cerro López</h3>
+                <h4 class="card__dificultad">Dificultad: moderado</h4>
+                <p class="card__features">10km • 4hs</p>
+                <a href="#" class="card__btn">Explorar</a>
+            </div>
+
+            <div class="card12">
+                <h3 class="card__sendero">Sendero del Cerro Torre</h3>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
                 <p class="card__features">10km • 4hs</p>
                 <a href="#" class="card__btn">Explorar</a>
@@ -42,7 +160,11 @@
 
 
         
-    </section>
+    </main>
+
+    
+
+    
 
 
     

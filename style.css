@@ -15,33 +15,248 @@
 }
 
 .contenedor-titulo{
-    padding-top: 130px;
+    width: 100vw;
+    height: 600px;
+    background-image: url(img/Laguna-de-los-tres-08-comp-scaled.webp);
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 180px;
     text-align: center;
-    font-size: 30px;
-    
+
 
 }
+
+
+h2{
+    font-size: 50px;
+}
+
+
+
+.contenedor-busqueda{
+    background-color:rgb(228, 228, 228, 0.7);
+    height: 1550px;
+    display: inline;
+    width: 270px;
+    margin-top: 7%;
+    text-align: center;
+    margin-left: 1.5%;
+    float: left;
+    overflow: hidden;
+    padding: 35px;
+    border-radius: 50px;
+
+}
+
+
+.busqueda-por-provincia{
+    height: 290px;
+    width: 170px;
+    padding-bottom: 20px;
+    padding-top: 40px;
+    margin: 10px;
+
+
+}
+
+
+.busqueda-por-dificultad{
+    padding-top: 20px;
+    height: 150px;
+    width: 100px;
+    text-align: center;
+
+
+}
+
+.busqueda-por-distancia{
+    text-align: center;
+    height: 150px;
+    width: 100px;
+}
+
+.busqueda-por-duracion{
+    height: 150px;
+    width: 100px;
+
+}
+
+.busqueda-por-desnivel{
+    height: 150px;
+    width: 100px;
+}
+
+.btn-busqueda{
+    width: 200px;
+    padding: 10px;
+    border-radius: 40px;
+}
+
 
 .card{
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-     
+    width: 75%;
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 400px);
+    grid-template-areas:
+        "card1 card2 card3"
+        "card4 card5 card6"
+        "card7 card8 card9"
+        "card10 card11 card12";
+    margin-left: 20%;
+    margin-right: 15%;
+    margin-bottom: 20%;
+    margin-top: 100px;
+
 }
 
-.card__item{
-    max-width: 350px;
-    width: 20%;
-    box-shadow: 0 0 5px rgba(0, 0, 0,.5);
+.card1{
     text-align: center;
-    padding: 40px 5px;
-    background: var(--color-button);
+    padding-top: 40px;
+    background-image: url(img/arrayanes.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card1;
+    border: 3px black solid;
     border-radius: 15px;
+    margin: 15px;
 
 }
+
+.card2{
+    text-align: center;
+    padding-top: 40px;
+    background-image:url(img/uritorco.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card2;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card3{
+    text-align: center;
+    padding-top: 40px;
+    background-image:url(img/lagunaesmeralda.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card3;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card4{
+    text-align: center;
+    padding-top: 40px;
+    background-image:url(img/aconcagua.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card4;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card5{
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(img/quebrada\ de\ huamuaca.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card5;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card6{
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(img/siete\ cascadas.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card6;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card7{
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(img/fitz\ roy.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card7;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card8{
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(img/lanin.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card8;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card9{
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(img/qubradadelasconchas.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card9;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card10{
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(img/glaciares.webp);
+    background-size: cover;
+    background-position: center;
+    grid-area: card10;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card11{
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(img/cerrolopez.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card11;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.card12{
+    text-align: center;
+    padding-top: 40px;
+    background-image: url(img/cerrotorre.jpg);
+    background-size: cover;
+    background-position: center;
+    grid-area: card12;
+    border: 3px black solid;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+
 
 .card__sendero{
     color: var(--color-dificultad);
@@ -51,7 +266,7 @@
 
 
 .card__features{
-    color: var(--color-features);
+    color: var(--color-button);
     margin-bottom: 25px;
     margin: 30px 0 50px;
 }
@@ -71,10 +286,8 @@
 
 
 body{
-    background-image: url(img/Laguna-de-los-tres-08-comp-scaled.webp);
-    background-size: cover;
-    background-position: center;
-    height: auto;
+    background-color: #F2F4F1;
     
+
 }
 
