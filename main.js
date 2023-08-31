@@ -20,7 +20,7 @@ const senderosArgentina = [
       "SENDERO DE LOS ARRAYANES",
       "Un encantador sendero rodeado de bosques de arrayanes en el Parque Nacional Los Arrayanes.",
       "Neuquén",
-      "MODERADO",
+      "Moderado",
       8,
       3,
       792
@@ -30,7 +30,7 @@ const senderosArgentina = [
       "SENDERO DEL CERRO URITORCO",
       "Un desafiante sendero que te lleva a la cima del Cerro Uritorco, la montaña más alta de Córdoba.",
       "Córdoba",
-      "DIFÍCIL",
+      "Difícil",
       12,
       6,
       872
@@ -40,7 +40,7 @@ const senderosArgentina = [
       "SENDERO DE LA LAGUNA ESMERALDA",
       "Un pintoresco sendero que conduce a una hermosa laguna de color esmeralda en Tierra del Fuego.",
       "Tierra del Fuego",
-      "MODERADO",
+      "Moderado",
       10,
       4,
       720
@@ -50,7 +50,7 @@ const senderosArgentina = [
       "SENDERO DEL ACONCAGUA",
       "Un desafiante sendero que lleva a los aventureros a la base del majestuoso Aconcagua, la montaña más alta de América.",
       "Mendoza",
-      "DIFÍCIL",
+      "Difícil",
       20,
       10,
       880
@@ -60,7 +60,7 @@ const senderosArgentina = [
       "SENDERO DE LA QUEBRADA DE HUMAHUACA",
       "Un sendero histórico que recorre paisajes impresionantes y sitios arqueológicos en la Quebrada de Humahuaca.",
       "Jujuy",
-      "MODERADO",
+      "Moderado",
       15,
       8,
       652
@@ -70,7 +70,7 @@ const senderosArgentina = [
       "SENDERO DE LAS SIETE CASCADAS",
       "Un relajante sendero que pasa por siete hermosas cascadas en la provincia de Misiones.",
       "Misiones",
-      "FÁCIL",
+      "Fácil",
       6,
       2,
       253
@@ -80,7 +80,7 @@ const senderosArgentina = [
       "SENDERO DEL MIRADOR DEL FITZ ROY",
       "Un sendero panorámico que ofrece vistas impresionantes del famoso Cerro Fitz Roy en Santa Cruz.",
       "Santa Cruz",
-      "MODERADO",
+      "Moderado",
       14,
       6,
       589
@@ -90,7 +90,7 @@ const senderosArgentina = [
       "SENDERO DEL VOLCÁN LANÍN",
       "Un desafiante sendero que te lleva a la cumbre del imponente Volcán Lanín en la provincia de Neuquén.",
       "Neuquén",
-      "DIFÍCIL",
+      "Difícil",
       18,
       9,
       834
@@ -100,7 +100,7 @@ const senderosArgentina = [
       "SENDERO DE LA QUEBRADA DE LAS CONCHAS",
       "Un espectacular sendero que recorre formaciones rocosas únicas en la Quebrada de las Conchas, Salta.",
       "Salta",
-      "MODERADO",
+      "Moderado",
       12,
       5,
       638
@@ -110,7 +110,7 @@ const senderosArgentina = [
       "SENDERO DE LOS GLACIARES",
       "Un increíble sendero que te permite acercarte a impresionantes glaciares en el Parque Nacional Los Glaciares.",
       "Santa Cruz",
-      "MODERADO",
+      "Moderado",
       10,
       4,
       721
@@ -120,7 +120,7 @@ const senderosArgentina = [
       "SENDERO DEL CERRO LOPEZ",
       "Un hermoso sendero que te lleva a lo largo de la ladera del Cerro López, ofreciendo vistas panorámicas de la región.",
       "Río Negro",
-      "MODERADO",
+      "Moderado",
       10,
       4,
       753
@@ -244,7 +244,7 @@ function filtrarSenderos(){
   cardContainer.innerHTML= '';
   if(senderosFiltrados.length >0) {
     senderosFiltrados.forEach(sendero =>{
-      tarjetaDiv = document.querySelector(`.card${sendero.id}`);
+      tarjetaDiv = document.querySelector(`.card${sendero.id} .card${sendero.id}`);
       if(tarjetaDiv){
         mostrarSenderos(sendero, tarjetaDiv);   
       }    
