@@ -19,7 +19,7 @@ const senderosArgentina = [
       1,
       "SENDERO DE LOS ARRAYANES",
       "Un encantador sendero rodeado de bosques de arrayanes en el Parque Nacional Los Arrayanes.",
-      "NEUQUÉN",
+      "Neuquén",
       "MODERADO",
       8,
       3,
@@ -29,7 +29,7 @@ const senderosArgentina = [
       2,
       "SENDERO DEL CERRO URITORCO",
       "Un desafiante sendero que te lleva a la cima del Cerro Uritorco, la montaña más alta de Córdoba.",
-      "CÓRDOBA",
+      "Córdoba",
       "DIFÍCIL",
       12,
       6,
@@ -39,7 +39,7 @@ const senderosArgentina = [
       3,
       "SENDERO DE LA LAGUNA ESMERALDA",
       "Un pintoresco sendero que conduce a una hermosa laguna de color esmeralda en Tierra del Fuego.",
-      "TIERRA DEL FUEGO",
+      "Tierra del Fuego",
       "MODERADO",
       10,
       4,
@@ -49,7 +49,7 @@ const senderosArgentina = [
       4,
       "SENDERO DEL ACONCAGUA",
       "Un desafiante sendero que lleva a los aventureros a la base del majestuoso Aconcagua, la montaña más alta de América.",
-      "MENDOZA",
+      "Mendoza",
       "DIFÍCIL",
       20,
       10,
@@ -59,7 +59,7 @@ const senderosArgentina = [
       5,
       "SENDERO DE LA QUEBRADA DE HUMAHUACA",
       "Un sendero histórico que recorre paisajes impresionantes y sitios arqueológicos en la Quebrada de Humahuaca.",
-      "JUJUY",
+      "Jujuy",
       "MODERADO",
       15,
       8,
@@ -69,7 +69,7 @@ const senderosArgentina = [
       6,
       "SENDERO DE LAS SIETE CASCADAS",
       "Un relajante sendero que pasa por siete hermosas cascadas en la provincia de Misiones.",
-      "MISIONES",
+      "Misiones",
       "FÁCIL",
       6,
       2,
@@ -79,7 +79,7 @@ const senderosArgentina = [
       7,
       "SENDERO DEL MIRADOR DEL FITZ ROY",
       "Un sendero panorámico que ofrece vistas impresionantes del famoso Cerro Fitz Roy en Santa Cruz.",
-      "SANTA CRUZ",
+      "Santa Cruz",
       "MODERADO",
       14,
       6,
@@ -89,7 +89,7 @@ const senderosArgentina = [
       8,
       "SENDERO DEL VOLCÁN LANÍN",
       "Un desafiante sendero que te lleva a la cumbre del imponente Volcán Lanín en la provincia de Neuquén.",
-      "NEUQUÉN",
+      "Neuquén",
       "DIFÍCIL",
       18,
       9,
@@ -99,7 +99,7 @@ const senderosArgentina = [
       9,
       "SENDERO DE LA QUEBRADA DE LAS CONCHAS",
       "Un espectacular sendero que recorre formaciones rocosas únicas en la Quebrada de las Conchas, Salta.",
-      "SALTA",
+      "Salta",
       "MODERADO",
       12,
       5,
@@ -109,7 +109,7 @@ const senderosArgentina = [
       10,
       "SENDERO DE LOS GLACIARES",
       "Un increíble sendero que te permite acercarte a impresionantes glaciares en el Parque Nacional Los Glaciares.",
-      "SANTA CRUZ",
+      "Santa Cruz",
       "MODERADO",
       10,
       4,
@@ -119,7 +119,7 @@ const senderosArgentina = [
       11,
       "SENDERO DEL CERRO LOPEZ",
       "Un hermoso sendero que te lleva a lo largo de la ladera del Cerro López, ofreciendo vistas panorámicas de la región.",
-      "RIO NEGRO",
+      "Río Negro",
       "MODERADO",
       10,
       4,
@@ -129,7 +129,7 @@ const senderosArgentina = [
       12,
       "SENDERO DEL CERRO TORRE",
       "Un desafiante sendero que conduce a la base del impresionante Cerro Torre, conocido por su belleza y dificultad.",
-      "SANTA CRUZ",
+      "Santa Cruz",
       "Difícil",
       15,
       8,
@@ -141,18 +141,22 @@ const senderosArgentina = [
 
 
 
-// Asociar divs de cada card a los objetos del array
+// Información de los senderos se muestra en el HTML
 
-const cards = document.querySelectorAll('.card')
+let cardContainer = document.getElementById('card-imagenes'); 
 
-cards.forEach(card =>{
-  const id = card.dataset.id;
-  const sendero = senderosArgentina.find(obj => obj.id.toString() === id);
-  if(sendero){
-  card.textContent = sendero.contenido
-  
+function mostrarSenderos(sendero, tarjetaDiv){  
+  // tarjetaDiv = cardContainer.getElementsByClassName("card" + sendero.id)[0]; 
+  let contenidoTarjeta = `
+  <h3 class="card__sendero">${sendero.nombre}</h3>
+  <h3 class="card__provincia">${sendero.provincia}</h3>
+  <h4 class="card__dificultad">Dificultad: ${sendero.dificultad}</h4>
+  <h4 class="card__descripcion">${sendero.descripcion}</h4>
+  <p class="card__features">${sendero.distancia}km • ${sendero.duracion}hs • Desnivel: ${sendero.desnivel} mts.</p>
+  <a href="#" class="card__btn">Explorar</a>
+  `;
+  tarjetaDiv.innerHTML = contenidoTarjeta;
 }
-})
 
 
 
@@ -208,15 +212,17 @@ document.addEventListener('DOMContentLoaded', () =>{
 
 // Funcion para filtrar senderos & Storage 
 
+
 function filtrarSenderos(){
+  
   const provinciaCheckboxes = document.querySelectorAll('input[name="provincia"]:checked');
   const dificultad = document.getElementById('dificultad').value;
-  const minimoDistancia = parseInt(document.getElementById('min-distancia').value);
-  const maximoDistancia = parseInt(document.getElementById('max-distancia').value);
-  const minimoDuracion = parseInt(document.getElementById('min-duracion').value);
-  const maximoDuracion = parseInt(document.getElementById('max-duracion').value);
-  const minimoDesnivel = parseInt(document.getElementById('min-desnivel').value);
-  const maximoDesnivel = parseInt(document.getElementById('max-desnivel').value);
+  const minimoDistancia = parseInt(document.getElementById('min-distancia').value) || null;
+  const maximoDistancia = parseInt(document.getElementById('max-distancia').value) || null;
+  const minimoDuracion = parseInt(document.getElementById('min-duracion').value) || null;
+  const maximoDuracion = parseInt(document.getElementById('max-duracion').value) || null;
+  const minimoDesnivel = parseInt(document.getElementById('min-desnivel').value) || null;
+  const maximoDesnivel = parseInt(document.getElementById('max-desnivel').value) || null;
 
   const provincias = Array.from(provinciaCheckboxes).map(checkbox => checkbox.value);
   localStorage.setItem('provincias', JSON.stringify(provincias));
@@ -230,22 +236,70 @@ function filtrarSenderos(){
 
   
   const senderosFiltrados = senderosArgentina.filter(senderoArgentina =>{
-    return (provinciaCheckboxes.length === 0 || provinciaCheckboxes.includes(senderoArgentina.provincia)) && 
-    (dificultad === '' || senderoArgentina.dificultad === dificultad) && (senderoArgentina.minimoDistancia) && (senderoArgentina.maximoDistancia) && (senderoArgentina.minimoDuracion) && (senderoArgentina.maximoDuracion) && (senderoArgentina.minimoDesnivel) && (senderoArgentina.maximoDesnivel);
-  });  
+    return (provincias.length === 0 || provincias.includes (senderoArgentina.provincia)) && 
+    (dificultad === '' || senderoArgentina.dificultad === dificultad) && (minimoDistancia === null || senderoArgentina.distancia >= minimoDistancia) && (maximoDistancia === null || senderoArgentina.distancia <= maximoDistancia) && (minimoDuracion === null || senderoArgentina.duracion >= minimoDuracion) && (maximoDuracion === null || senderoArgentina.duracion <= maximoDuracion) && (minimoDesnivel === null || senderoArgentina.desnivel >= minimoDesnivel) && (maximoDesnivel === null || senderoArgentina.desnivel <= maximoDesnivel);
+  });
 
+  
+  cardContainer.innerHTML= '';
+  if(senderosFiltrados.length >0) {
+    senderosFiltrados.forEach(sendero =>{
+      tarjetaDiv = document.querySelector(`.card${sendero.id}`);
+      if(tarjetaDiv){
+        mostrarSenderos(sendero, tarjetaDiv);   
+      }    
+    });  
+  } else{
+    cardContainer.innerHTML = '<p class="mensaje">No se encontraron resultados para tu búsqueda. Por favor, intentá nuevamente.</p>';
+  };
   
 
 }
 
-// Evento del botón Buscar (ejecución de la función)
 
+//Prevent Default del submit
+
+let form = document.getElementById('formulario')
+form.addEventListener('submit', (evt) =>{
+  evt.preventDefault();
+}) 
+
+// Evento del botón Buscar + Sweet alert
 let btn = document.getElementById('btnBuscar');
-
 btn.addEventListener('click', ()=> {
   filtrarSenderos();
+  let timerInterval
+  Swal.fire({
+  title: 'Estamos buscando los mejores destinos para vos...',
+  html: 'Terminaremos en <b></b> milisegundos.',
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('Ha terminado la búsqueda')
+  }
+})
 })
 
+// Mostrar senderos al cargar la pagina
+
+// senderosArgentina.forEach(sendero => {
+//   mostrarSenderos(sendero, tarjetaDiv);
+// });
+
+function limpiarFormulario() {
+  document.getElementById('formulario').reset();
+}
 
 
 

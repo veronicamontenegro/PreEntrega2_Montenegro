@@ -18,10 +18,10 @@
 
     <aside class="contenedor-busqueda">
         <h3>Filtrá por provincia, dificultad, distancia y/o desnivel</h3>
-        <form action="" method="post" id="formulario">
+        <form action="" method="get" id="formulario">
             <div class="busqueda-por-provincia" id="busquedaprovincia">
                 <p>PROVINCIA:</p>
-                <label><input type="checkbox" id="cbox1" name="provincia" value="Neuquén" class="busquedaneuquen" /> Neuquén</label><br/>
+                <label><input type="checkbox" id="cbox1" name="provincia" value="Neuquén" /> Neuquén</label><br/>
                 <label><input type="checkbox" id="cbox1" name="provincia" value="Córdoba" /> Córdoba</label><br />
                 <label><input type="checkbox" id="cbox1" name="provincia" value="Tierra del Fuego" /> Tierra del Fuego</label><br />
                 <label><input type="checkbox" id="cbox1" name="provincia" value="Rio Negro" /> Río Negro</label><br />
@@ -60,6 +60,7 @@
            </div>
 
            <button id="btnBuscar" class="btn-busqueda">Buscar</button>
+           <input type="button"  id="btnLimpiar" class="btn-busqueda" onclick="limpiarFormulario()" value="Limpiar formulario">
 
         </form>
         
@@ -72,88 +73,111 @@
 
 
         <div class="card" id="card-imagenes">
-            <div class="card1">
+            <div class="card1" >
                 <h3 class="card__sendero">Sendero de los Arrayanes</h3>
-                <!-- <h4>Un encantador sendero rodeado de bosques de arrayanes en el Parque Nacional Los Arrayanes.</h4> -->
+                <h3 class="card__provincia">Provincia: Neuquén</h3>
+                <h4 class="card__descripcion">Un encantador sendero rodeado de bosques de arrayanes en el Parque Nacional Los Arrayanes.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">8km • 3hs</p>
+                <p class="card__features">8km • 3hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card2">
+            <div class="card2" >
                 <h3 class="card__sendero">Sendero del Cerro Uritorco</h3>
+                <h3 class="card__provincia">Provincia: Córdoba</h3>
+                <h4 class="card__descripcion">Un desafiante sendero que te lleva a la cima del Cerro Uritorco, la montaña más alta de Córdoba.</h4>
                 <h4 class="card__dificultad">Dificultad: difícil</h4>
-                <p class="card__features">12 km • 6hs</p>
+                <p class="card__features">12 km • 6hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card3">
+            <div class="card3" >
                 <h3 class="card__sendero">Sendero de la Laguna Esmeralda</h3>
+                <h3 class="card__provincia">Provincia: Tierra del Fuego</h3>
+                <h4 class="card__descripcion">Un pintoresco sendero que conduce a una hermosa laguna de color esmeralda en Tierra del Fuego.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card4">
+            <div class="card4" >
                 <h3 class="card__sendero">Sendero del Aconcagua</h3>
+                <h3 class="card__provincia">Provincia: Mendoza</h3>
+                <h4 class="card__descripcion">Un desafiante sendero que lleva a los aventureros a la base del majestuoso Aconcagua, la montaña más alta de América.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card5">
+            <div class="card5" >
                 <h3 class="card__sendero">Sendero de la Quebrada de Humahuaca</h3>
+                <h3 class="card__provincia">Provincia: Jujuy</h3>
+                <h4 class="card__descripcion">Un sendero histórico que recorre paisajes impresionantes y sitios arqueológicos en la Quebrada de Humahuaca.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card6">
+            <div class="card6" >
                 <h3 class="card__sendero">Sendero de las Siete Cascadas</h3>
+                <h3 class="card__provincia">Provincia: Misiones</h3>
+                <h4 class="card__descripcion">Un relajante sendero que pasa por siete hermosas cascadas en la provincia de Misiones.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card7">
+            <div class="card7" >
                 <h3 class="card__sendero">Sendero del Mirador del Fitz Roy</h3>
+                <h3 class="card__provincia">Provincia: Santa Cruz</h3>
+                <h4 class="card__descripcion">Un sendero panorámico que ofrece vistas impresionantes del famoso Cerro Fitz Roy en Santa Cruz.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card8">
+            <div class="card8" >
                 <h3 class="card__sendero">Sendero del Volcán Lanín</h3>
+                <h3 class="card__provincia">Provincia: Neuquén</h3>
+                <h4 class="card__descripcion">Un desafiante sendero que te lleva a la cumbre del imponente Volcán Lanín en la provincia de Neuquén.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card9">
+            <div class="card9" >
                 <h3 class="card__sendero">Sendero de la Quebrada de las Conchas</h3>
+                <h3 class="card__provincia">Provincia: Salta</h3>
+                <h4 class="card__descripcion">Un espectacular sendero que recorre formaciones rocosas únicas en la Quebrada de las Conchas, Salta.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card10">
+            <div class="card10" >
                 <h3 class="card__sendero">Sendero de los Glaciares</h3>
+                <h3 class="card__provincia">Provincia: Santa Cruz</h3>
+                <h4 class="card__descripcion">Un increíble sendero que te permite acercarte a impresionantes glaciares en el Parque Nacional Los Glaciares.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card11">
+            <div class="card11" >
                 <h3 class="card__sendero">Sendero del Cerro López</h3>
+                <h3 class="card__provincia">Provincia: Río Negro</h3>
+                <h4 class="card__descripcion">Un hermoso sendero que te lleva a lo largo de la ladera del Cerro López, ofreciendo vistas panorámicas de la región.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
 
-            <div class="card12">
+            <div class="card12" >
                 <h3 class="card__sendero">Sendero del Cerro Torre</h3>
+                <h3 class="card__provincia">Provincia: Santa Cruz</h3>
+                <h4 class="card__descripcion">Un desafiante sendero que conduce a la base del impresionante Cerro Torre, conocido por su belleza y dificultad.</h4>
                 <h4 class="card__dificultad">Dificultad: moderado</h4>
-                <p class="card__features">10km • 4hs</p>
+                <p class="card__features">10km • 4hs • 792 mts.</p>
                 <a href="#" class="card__btn">Explorar</a>
             </div>
         </div>
@@ -171,7 +195,7 @@
     
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="main.js"></script>
 </body>
 </html>
