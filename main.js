@@ -238,9 +238,56 @@ function filtrarSenderos(){
   const senderosFiltrados = senderosArgentina.filter(senderoArgentina =>{
     return (provincias.length === 0 || provincias.includes (senderoArgentina.provincia)) && 
     (dificultad === '' || senderoArgentina.dificultad === dificultad) && (minimoDistancia === null || senderoArgentina.distancia >= minimoDistancia) && (maximoDistancia === null || senderoArgentina.distancia <= maximoDistancia) && (minimoDuracion === null || senderoArgentina.duracion >= minimoDuracion) && (maximoDuracion === null || senderoArgentina.duracion <= maximoDuracion) && (minimoDesnivel === null || senderoArgentina.desnivel >= minimoDesnivel) && (maximoDesnivel === null || senderoArgentina.desnivel <= maximoDesnivel);
+   
   });
 
+  let provinciasFiltradas = senderosArgentina.filter(senderoArgentina =>{
+    return (provincias.length === 0 || provincias.includes(senderoArgentina.provincia))
+  });
+  console.log(provinciasFiltradas)
+
+  let dificultadFiltrada = senderosArgentina.filter(senderoArgentina =>{
+    return (dificultad === ''|| senderoArgentina.dificultad === dificultad)
+  });
+  console.log(dificultadFiltrada)
+
+  let minDistanciaFiltrada = senderosArgentina.filter(senderoArgentina =>{
+    return (minimoDistancia === null || senderoArgentina.distancia >= minimoDistancia)
+  })
+  console.log(minDistanciaFiltrada)
+
+  let maxDistanciaFiltrada = senderosArgentina.filter(senderoArgentina =>{
+    return (maximoDistancia === null || senderoArgentina.distancia <= maximoDistancia)
+  })
+  console.log(maxDistanciaFiltrada)
+
+  let minDuracionFiltrada = senderosArgentina.filter(senderoArgentina =>{
+    return (minimoDuracion === null || senderoArgentina.duracion >= minimoDuracion)
+  })
+  console.log(minDuracionFiltrada)
+
+  let maxDuracionFiltrada = senderosArgentina.filter(senderoArgentina =>{
+    return (maximoDuracion === null || senderoArgentina.duracion <= maximoDuracion)
+  })
+  console.log(maxDuracionFiltrada)
+
+  let minDesnivelFiltrada = senderosArgentina.filter(senderoArgentina =>{
+    return (minimoDesnivel === null || senderoArgentina.desnivel >= minimoDesnivel)
+  })
+  console.log(minDesnivelFiltrada)
+
+  let maxDesnivelFiltrada = senderosArgentina.filter(senderoArgentina =>{
+    return (maximoDesnivel === null || senderoArgentina.desnivel <= maximoDesnivel)
+  })
+  console.log(maxDesnivelFiltrada)
+
   
+
+
+
+
+
+
   cardContainer.innerHTML= '';
   if(senderosFiltrados.length >0) {
     senderosFiltrados.forEach(sendero =>{
@@ -300,7 +347,6 @@ btn.addEventListener('click', ()=> {
 function limpiarFormulario() {
   document.getElementById('formulario').reset();
 }
-
 
 
 
