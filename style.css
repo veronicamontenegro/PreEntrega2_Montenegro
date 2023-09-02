@@ -14,9 +14,55 @@
     font-family: 'Poppins', sans-serif;
 }
 
+nav{
+    margin: 30px;
+    width: 95%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-button);
+    opacity: 80%;
+    /* justify-content: space-between; */
+    border-radius: 80px;
+    position: absolute;
+    overflow: hidden;
+}
+
+.nombre-web{
+    font-size: 18px;
+    font-weight: bold;
+}
+.icono{
+    height: 150px;
+    overflow: hidden;
+    
+}
+
+.box-clima{
+    width: 75%;
+    height: 100px;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    
+
+
+}
+
+.clima{
+    display: flex;        
+}
+
+.clima1{
+    padding: 30px;  
+}
+
+
+
 .contenedor-titulo{
     width: 100vw;
-    height: 600px;
+    height: 100vh;
     background-image: url(img/Laguna-de-los-tres-08-comp-scaled.webp);
     background-size: cover;
     background-attachment: fixed;
@@ -29,6 +75,7 @@
 
 h2{
     font-size: 50px;
+    margin-top: 150px;
 }
 
 
@@ -112,6 +159,8 @@ h2{
     margin-right: 15%;
     margin-bottom: 20%;
     margin-top: 100px;
+    padding: 10px;
+    
     
 }
 
@@ -129,6 +178,7 @@ h2{
     border: 3px black solid;
     border-radius: 15px;
     margin: 15px;
+    
 
 }
 
@@ -295,10 +345,10 @@ h2{
 
 }
 
-.card__descripcion{
+/* .card__descripcion{
     font-style: italic;
 
-}
+} */
 
 .mensaje{
     font-size: 20px;
@@ -310,3 +360,8 @@ body{
 
 }
 
+.footer{
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+}

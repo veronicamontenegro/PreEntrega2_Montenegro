@@ -246,46 +246,40 @@ function filtrarSenderos(){
   });
   console.log(provinciasFiltradas)
 
-  let dificultadFiltrada = senderosArgentina.filter(senderoArgentina =>{
+  let dificultadFiltrada = provinciasFiltradas.filter(senderoArgentina =>{
     return (dificultad === ''|| senderoArgentina.dificultad === dificultad)
   });
   console.log(dificultadFiltrada)
 
-  let minDistanciaFiltrada = senderosArgentina.filter(senderoArgentina =>{
+  let minDistanciaFiltrada = dificultadFiltrada.filter(senderoArgentina =>{
     return (minimoDistancia === null || senderoArgentina.distancia >= minimoDistancia)
   })
   console.log(minDistanciaFiltrada)
 
-  let maxDistanciaFiltrada = senderosArgentina.filter(senderoArgentina =>{
+  let maxDistanciaFiltrada = minDistanciaFiltrada.filter(senderoArgentina =>{
     return (maximoDistancia === null || senderoArgentina.distancia <= maximoDistancia)
   })
   console.log(maxDistanciaFiltrada)
 
-  let minDuracionFiltrada = senderosArgentina.filter(senderoArgentina =>{
+  let minDuracionFiltrada = maxDistanciaFiltrada.filter(senderoArgentina =>{
     return (minimoDuracion === null || senderoArgentina.duracion >= minimoDuracion)
   })
   console.log(minDuracionFiltrada)
 
-  let maxDuracionFiltrada = senderosArgentina.filter(senderoArgentina =>{
+  let maxDuracionFiltrada = minDuracionFiltrada.filter(senderoArgentina =>{
     return (maximoDuracion === null || senderoArgentina.duracion <= maximoDuracion)
   })
   console.log(maxDuracionFiltrada)
 
-  let minDesnivelFiltrada = senderosArgentina.filter(senderoArgentina =>{
+  let minDesnivelFiltrada = maxDuracionFiltrada.filter(senderoArgentina =>{
     return (minimoDesnivel === null || senderoArgentina.desnivel >= minimoDesnivel)
   })
   console.log(minDesnivelFiltrada)
 
-  let maxDesnivelFiltrada = senderosArgentina.filter(senderoArgentina =>{
+  let maxDesnivelFiltrada = minDesnivelFiltrada.filter(senderoArgentina =>{
     return (maximoDesnivel === null || senderoArgentina.desnivel <= maximoDesnivel)
   })
   console.log(maxDesnivelFiltrada)
-
-  
-
-
-
-
 
 
   cardContainer.innerHTML= '';
@@ -299,7 +293,6 @@ function filtrarSenderos(){
   } else{
     cardContainer.innerHTML = '<p class="mensaje">No se encontraron resultados para tu búsqueda. Por favor, intentá nuevamente.</p>';
   };
-  
 
 }
 
@@ -347,6 +340,53 @@ btn.addEventListener('click', ()=> {
 function limpiarFormulario() {
   document.getElementById('formulario').reset();
 }
+
+
+// API clima
+
+const clima = document.querySelector('#btn')
+clima.addEventListener('click', ()=>{
+  const key = "a96fd788a2b7558cdee739e307b89a8f";
+  let ciudad = document.querySelector('#ciudad').value
+  console.log(ciudad)
+
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${key}`
+
+  fetch(url)
+    .then((res)=>{
+      return res.json()
+    })
+    .then((clima =>{
+      let temp = `Temp. actual: ${parseInt(clima.main.temp -273.15)}°`
+      let termica = `S. térmica: ${parseInt(clima.main.feels_like -273.15)}°`
+      let humedad = `Humedad: ${clima.main.humidity}%`
+      let viento= `Viento: ${parseInt(clima.wind.speed *1.60934)}k/h`
+
+      let tempHtml = document.getElementById('temperatura')
+      tempHtml.innerHTML = temp
+
+      let termicaHtml = document.getElementById('termica')
+      termicaHtml.innerHTML = termica
+
+      let humedadHtml = document.getElementById('humedad')
+      humedadHtml.innerHTML = humedad
+      
+      let vientoHtml = document.getElementById('viento')
+      vientoHtml.innerHTML = viento
+
+      // if(temp > 10){
+        
+      //   const imagenCalor = "img/sol.png"
+      //   const pTemp = document.querySelector('.imgTemp')
+      //   pTemp.innerHTML = `<img src="${imagenCalor}">`
+      // }
+
+    }))
+    .catch(err =>{
+      document.innerHTML= "No se pueden encontrar los resultados para la ciudad seleccionada."
+    })
+
+})
 
 
 
