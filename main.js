@@ -146,7 +146,6 @@ const senderosArgentina = [
 let cardContainer = document.getElementById('card-imagenes'); 
 
 function mostrarSenderos(sendero, tarjetaDiv){  
-  //tarjetaDiv = cardContainer.getElementsByClassName("card" + sendero.id)[0]; 
   let contenidoTarjeta = `
   <h3 class="card__sendero">${sendero.nombre}</h3>
   <h3 class="card__provincia">${sendero.provincia}</h3>
@@ -204,14 +203,12 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   if(maximoDesnivelGuardada){
     document.getElementById('max-desnivel').value = maximoDesnivelGuardada;
-  }
-
-  
+  }  
 
 });
 
-// Funcion para filtrar senderos & Storage 
 
+// Funcion para filtrar senderos & Storage 
 
 function filtrarSenderos(){
   
@@ -286,8 +283,6 @@ function filtrarSenderos(){
     (maxDesnivelFiltrada); 
   })
 
-  console.log(senderosFiltrados)
-
 
   cardContainer.innerHTML= '';
   if(senderosFiltrados.length) {
@@ -303,7 +298,6 @@ function filtrarSenderos(){
 
 }
 
-
 //Prevent Default del submit
 
 let form = document.getElementById('formulario')
@@ -311,7 +305,8 @@ form.addEventListener('submit', (evt) =>{
   evt.preventDefault();
 }) 
 
-// Evento del botón Buscar + Sweet alert
+// Evento del botón Buscar & Limpiar formulario + Sweet alert
+
 let btn = document.getElementById('btnBuscar');
 btn.addEventListener('click', ()=> {
   filtrarSenderos();
@@ -351,7 +346,6 @@ clima.addEventListener('click', ()=>{
   const key = "a96fd788a2b7558cdee739e307b89a8f";
   let ciudad = document.querySelector('#ciudad').value
   ciudad = encodeURIComponent(ciudad)
-
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${key}`
 
   fetch(url)
