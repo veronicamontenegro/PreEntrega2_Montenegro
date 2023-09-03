@@ -35,28 +35,44 @@ nav{
 .icono{
     height: 150px;
     overflow: hidden;
-    
+
 }
 
 .box-clima{
     width: 75%;
     height: 100px;
-    margin-left: 100px;
+    /* margin-left: 100px; */
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     padding: 10px;
-    
+
 
 
 }
 
-.clima{
-    display: flex;        
+#ciudad{
+    text-decoration: none;
+    width: 500px;
+    padding: 4px;
+    border-radius: 40px;
+    margin: 8px;
+    font-size: 15px;
 }
 
-.clima1{
-    padding: 30px;  
+
+#btnClima{
+    text-decoration: none;
+    width: 200px;
+    padding: 4px;
+    border-radius: 40px;
+    margin: 8px;
+    border: transparent;
+    cursor: pointer;
+    font-size: 15px;
+
 }
+
 
 
 
@@ -82,7 +98,7 @@ h2{
 
 .contenedor-busqueda{
     background-color:rgb(228, 228, 228, 0.7);
-    height: 1550px;
+    height: auto;
     display: inline;
     width: 270px;
     margin-top: 7%;
@@ -134,41 +150,42 @@ h2{
 }
 
 .btn-busqueda{
-    width: 200px;
+    width: 150px;
     padding: 10px;
     border-radius: 40px;
     margin: 10px;
+    cursor: pointer;
 }
 
 
 .card{
-    
+
     width: 70%;
     min-height: 650px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 500px);
     grid-template-areas:
-        "card1 card2" 
-        "card3 card4" 
+        "card1 card2"
+        "card3 card4"
         "card5 card6"
-        "card7 card8" 
-        "card9 card10" 
+        "card7 card8"
+        "card9 card10"
         "card11 card12";
     margin-left: 20%;
     margin-right: 15%;
     margin-bottom: 20%;
     margin-top: 100px;
     padding: 10px;
-    
-    
+
+
 }
 
 
 
 
 .card1{
-    
+
     text-align: center;
     padding-top: 40px;
     background-image: url(img/arrayanes.jpg);
@@ -178,7 +195,7 @@ h2{
     border: 3px black solid;
     border-radius: 15px;
     margin: 15px;
-    
+
 
 }
 
@@ -201,7 +218,7 @@ h2{
     padding-top: 40px;
     background-image:url(img/lagunaesmeralda.jpg);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     grid-area: card3;
     border: 3px black solid;
     border-radius: 15px;
@@ -213,7 +230,7 @@ h2{
     padding-top: 40px;
     background-image:url(img/aconcagua.jpg);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     grid-area: card4;
     border: 3px black solid;
     border-radius: 15px;
@@ -237,7 +254,7 @@ h2{
     padding-top: 40px;
     background-image: url(img/siete\ cascadas.jpg);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     grid-area: card6;
     border: 3px black solid;
     border-radius: 15px;
@@ -261,7 +278,7 @@ h2{
     padding-top: 40px;
     background-image: url(img/lanin.jpg);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     grid-area: card8;
     border: 3px black solid;
     border-radius: 15px;
@@ -273,7 +290,7 @@ h2{
     padding-top: 40px;
     background-image: url(img/qubradadelasconchas.jpg);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     grid-area: card9;
     border: 3px black solid;
     border-radius: 15px;
@@ -285,7 +302,7 @@ h2{
     padding-top: 40px;
     background-image: url(img/glaciares.webp);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     grid-area: card10;
     border: 3px black solid;
     border-radius: 15px;
@@ -297,7 +314,7 @@ h2{
     padding-top: 40px;
     background-image: url(img/cerrolopez.jpg);
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     grid-area: card11;
     border: 3px black solid;
     border-radius: 15px;
@@ -321,7 +338,7 @@ h2{
 .card__sendero{
     color: var(--color-dificultad);
     margin-bottom: 40px;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 
@@ -330,7 +347,9 @@ h2{
     color: var(--color-button);
     margin-bottom: 25px;
     margin: 30px 0 50px;
+    font-size: 22px;
 }
+
 
 
 .card__btn{
@@ -345,18 +364,13 @@ h2{
 
 }
 
-/* .card__descripcion{
-    font-style: italic;
-
-} */
-
 .mensaje{
     font-size: 20px;
-        
+
 }
 body{
     background-color: #F2F4F1;
-    
+
 
 }
 

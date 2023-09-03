@@ -146,7 +146,7 @@ const senderosArgentina = [
 let cardContainer = document.getElementById('card-imagenes'); 
 
 function mostrarSenderos(sendero, tarjetaDiv){  
-  // tarjetaDiv = cardContainer.getElementsByClassName("card" + sendero.id)[0]; 
+  //tarjetaDiv = cardContainer.getElementsByClassName("card" + sendero.id)[0]; 
   let contenidoTarjeta = `
   <h3 class="card__sendero">${sendero.nombre}</h3>
   <h3 class="card__provincia">${sendero.provincia}</h3>
@@ -223,8 +223,8 @@ function filtrarSenderos(){
   const maximoDuracion = parseInt(document.getElementById('max-duracion').value) || null;
   const minimoDesnivel = parseInt(document.getElementById('min-desnivel').value) || null;
   const maximoDesnivel = parseInt(document.getElementById('max-desnivel').value) || null;
-
   const provincias = Array.from(provinciaCheckboxes).map(checkbox => checkbox.value);
+
   localStorage.setItem('provincias', JSON.stringify(provincias));
   localStorage.setItem('dificultad', dificultad);
   localStorage.setItem('minimoDistancia', minimoDistancia);
@@ -234,19 +234,13 @@ function filtrarSenderos(){
   localStorage.setItem('minimoDesnivel', minimoDesnivel);
   localStorage.setItem('maximoDesnivel', maximoDesnivel);
 
-  
-  const senderosFiltrados = senderosArgentina.filter(senderoArgentina =>{
-    return (provincias.length === 0 || provincias.includes (senderoArgentina.provincia)) && 
-    (dificultad === '' || senderoArgentina.dificultad === dificultad) && (minimoDistancia === null || senderoArgentina.distancia >= minimoDistancia) && (maximoDistancia === null || senderoArgentina.distancia <= maximoDistancia) && (minimoDuracion === null || senderoArgentina.duracion >= minimoDuracion) && (maximoDuracion === null || senderoArgentina.duracion <= maximoDuracion) && (minimoDesnivel === null || senderoArgentina.desnivel >= minimoDesnivel) && (maximoDesnivel === null || senderoArgentina.desnivel <= maximoDesnivel);
-   
-  });
 
   let provinciasFiltradas = senderosArgentina.filter(senderoArgentina =>{
     return (provincias.length === 0 || provincias.includes(senderoArgentina.provincia))
   });
   console.log(provinciasFiltradas)
 
-  let dificultadFiltrada = provinciasFiltradas.filter(senderoArgentina =>{
+  let dificultadFiltrada = senderosArgentina.filter(senderoArgentina =>{
     return (dificultad === ''|| senderoArgentina.dificultad === dificultad)
   });
   console.log(dificultadFiltrada)
@@ -281,13 +275,26 @@ function filtrarSenderos(){
   })
   console.log(maxDesnivelFiltrada)
 
+  const senderosFiltrados = senderosArgentina.filter(senderoArgentina =>{
+    return (provinciasFiltradas) &&
+    (dificultadFiltrada) && 
+    (minDistanciaFiltrada) && 
+    (maxDistanciaFiltrada) && 
+    (minDuracionFiltrada) && 
+    (maxDuracionFiltrada) && 
+    (minDesnivelFiltrada) && 
+    (maxDesnivelFiltrada); 
+  })
+
+  console.log(senderosFiltrados)
+
 
   cardContainer.innerHTML= '';
-  if(senderosFiltrados.length >0) {
+  if(senderosFiltrados.length) {
     senderosFiltrados.forEach(sendero =>{
       tarjetaDiv = document.querySelector(`.card${sendero.id} .card${sendero.id}`);
       if(tarjetaDiv){
-        mostrarSenderos(sendero, tarjetaDiv);   
+        mostrarSenderos(sendero, tarjetaDiv);  
       }    
     });  
   } else{
@@ -331,12 +338,6 @@ btn.addEventListener('click', ()=> {
 })
 })
 
-// Mostrar senderos al cargar la pagina
-
-// senderosArgentina.forEach(sendero => {
-//   mostrarSenderos(sendero, tarjetaDiv);
-// });
-
 function limpiarFormulario() {
   document.getElementById('formulario').reset();
 }
@@ -344,11 +345,12 @@ function limpiarFormulario() {
 
 // API clima
 
-const clima = document.querySelector('#btn')
+const clima = document.querySelector('#btnClima')
 clima.addEventListener('click', ()=>{
+  
   const key = "a96fd788a2b7558cdee739e307b89a8f";
   let ciudad = document.querySelector('#ciudad').value
-  console.log(ciudad)
+  ciudad = encodeURIComponent(ciudad)
 
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${key}`
 
@@ -357,38 +359,28 @@ clima.addEventListener('click', ()=>{
       return res.json()
     })
     .then((clima =>{
-      let temp = `Temp. actual: ${parseInt(clima.main.temp -273.15)}°`
-      let termica = `S. térmica: ${parseInt(clima.main.feels_like -273.15)}°`
-      let humedad = `Humedad: ${clima.main.humidity}%`
-      let viento= `Viento: ${parseInt(clima.wind.speed *1.60934)}k/h`
 
-      let tempHtml = document.getElementById('temperatura')
-      tempHtml.innerHTML = temp
-
-      let termicaHtml = document.getElementById('termica')
-      termicaHtml.innerHTML = termica
-
-      let humedadHtml = document.getElementById('humedad')
-      humedadHtml.innerHTML = humedad
-      
-      let vientoHtml = document.getElementById('viento')
-      vientoHtml.innerHTML = viento
-
-      // if(temp > 10){
+      Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        title: `Clima en ${(ciudad).toUpperCase()}`,
+        text: `Temp. actual: ${parseInt(clima.main.temp -273.15)}° - Sensación térmica: ${parseInt(clima.main.feels_like -273.15)}°  - Humedad: ${clima.main.humidity}% - Viento: ${parseInt(clima.wind.speed *1.60934)}k/h`,
+        showConfirmButton: false,
+        showCloseButton: true,
         
-      //   const imagenCalor = "img/sol.png"
-      //   const pTemp = document.querySelector('.imgTemp')
-      //   pTemp.innerHTML = `<img src="${imagenCalor}">`
-      // }
+      })
 
     }))
-    .catch(err =>{
-      document.innerHTML= "No se pueden encontrar los resultados para la ciudad seleccionada."
+    .catch((error) =>{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        text: 'No se encontraron resultados para la ciudad seleccionada.'
+      });
+
     })
 
 })
-
-
 
 
 
